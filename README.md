@@ -1,6 +1,6 @@
 # cpglang
-cpglang Programming Language
-cpglang is mostly like C & C++ with syntax like Pascal and Go. (C: C/C++/dlang, P: Pascal, G: Golang)
+cpglang Programming Language  
+cpglang is mostly like C & C++ with syntax like Pascal and Go. (C: C/C++/dlang, P: Pascal, G: Golang)  
 Features and Goals of cpglang -
 - Fastest compile times. Using clang & dmd as backend.
 - Easier to read, understand, parse syntax.
@@ -14,5 +14,5 @@ Features and Goals of cpglang -
 - No multiple inheritance.
 
 # Project Status
-Use vsix file locally with vscode for keyword syntax highlighting. (Still under development). 
-Compiler development has not started. Working on syntax currently.
+Use vsix file locally with vscode for keyword syntax highlighting. (Still under development).  
+Compiler development has not started. Working on syntax currently.  
