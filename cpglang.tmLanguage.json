@@ -1,0 +1,112 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "cpglang",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"block-comment": {
+			"patterns": [
+				{
+					"name": "comment.block.cpglang",
+					"begin": "/\\*",
+					"end": "\\*/",
+					"patterns": [{
+						"include": "#block-comment"
+					}]
+				},
+				{
+					"name": "comment.block.cpglang",
+					"begin": "{-",
+					"end": "-}",
+					"patterns": [{
+						"include": "#block-comment"
+					}]
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"include": "#block-comment"
+				},
+				{
+					"name": "comment.line.double-slash.cpglang",
+					"begin": "//",
+					"end": "\n"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+			{
+				"name": "keyword.control.cpglang",
+				"match": "\\b(import|export)\\b"
+			},
+			{
+				"name": "keyword.control.cpglang",
+				"match": "\\b(if|else|if_exp|while|do|for|in|rev|match|return)\\b"
+			},
+			{
+				"name": "keyword.control.cpglang",
+				"match": "\\b(var|fn|lambda|eval|inline|static|const|constexpr|comptime|template|default|scast|rcast|ccast|dcast)\\b"
+			},
+			{
+				"name": "keyword.control.cpglang",
+				"match": "\\b(type|self|constructor|destructor|virtual|private|override)\\b"
+			},
+			{
+				"name": "constant.language.cpglang",
+				"match": "\\b(nullptr|true|false)\\b"
+			},
+			{
+				"name": "constant.numeric.cpglang",
+				"match": "\\b(\\d(\\d|_)*(.\\d(\\d|_)*)?)((e|E)(\\+|-)?\\d+)?[ijk]?\\b"
+			},
+			{
+				"name": "constant.numeric.cpglang",
+				"match": "\\b((0b(0|1|_)+)|(0o(\\d|_)+)|(0d(\\d|_)+)|(0[xXh](\\h|_)+))[i]?\\b"
+			},
+			{
+				"name": "keyword.operator.cpglang",
+				"match": "@"
+			}
+			]
+		},
+		"types": {
+			"patterns": [
+			{
+				"name": "storage.type.cpglang",
+				"match": "\\b(void|bool|i8|i16|i32|i64|f32|f64)\\b"
+			},
+			{
+				"name": "storage.type.cpglang",
+				"match": "\\b(struct|union|tag_union|enum|enum_weak)\\b"
+			}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.cpglang",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.cpglang",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "cpglang"
+}
