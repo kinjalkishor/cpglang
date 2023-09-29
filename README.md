@@ -14,5 +14,5 @@ Features and Goals of cpglang -
 - No multiple inheritance.
 
 # Project Status
-Use vsix file locally with vscode for keyword syntax highlighting. (Still under development)
+Use vsix file locally with vscode for keyword syntax highlighting. (Still under development). 
 Compiler development has not started. Working on syntax currently.
