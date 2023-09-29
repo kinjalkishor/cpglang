@@ -11,7 +11,6 @@ Features and Goals of cpglang -
 - A subset of language (mainly without pointers) to be used as embedded scripting language.
 - Make C/C++ safer.
 - Note: No borrow checker, lifetimes, single ownership, type checker. Allows self-referential data structures.
-- No multiple inheritance.
 
 # Project Status
 Use vsix file locally with vscode for keyword syntax highlighting. (Still under development).  
