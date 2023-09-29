@@ -15,4 +15,5 @@ Features and Goals of cpglang -
 
 # Project Status
 Use vsix file locally with vscode for keyword syntax highlighting. (Still under development).  
+copy "cpglang.tmLanguage.json" to "%userprofile%\.vscode\extensions\akin.cpglang-0.0.1\syntaxes", to replace with current syntax definition file.  
 Compiler development has not started. Working on syntax currently.  
