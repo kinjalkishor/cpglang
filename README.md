@@ -12,3 +12,7 @@ Features and Goals of cpglang -
 - Make C/C++ safer.
 - Note: No borrow checker, lifetimes, single ownership, type checker. Allows self-referential data structures.
 - No multiple inheritance.
+
+# Project Status
+Use vsix file locally with vscode for keyword syntax highlighting. (Still under development)
+Compiler development has not started. Working on syntax currently.
