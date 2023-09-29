@@ -1,8 +1,10 @@
+{-
 #include <stdio.h>
 int main(void) {
 	printf("Hello World!\n");
 	return 0;
 }
+-}
 
 import cstdlib.stdio;
 fn main(): i32 {
@@ -96,13 +98,16 @@ do_something(&add);
 
 // closure
 // lambda
+// [=] by value, [&] by ref
+// [=, m] except m others by value, [&, m] except m others by ref
+// [m, &n] only m by value and n by ref captured
 
 fn main(): void {
    var m i32 = 0;
    var n i32 = 0;
    
    // explicitly captures the variable m by reference and others by value.
-   var c i32 = lambda eval [m&](a i32, b i32): i32 { 
+   var c i32 = lambda eval [=, m&](a i32, b i32): i32 { 
 		n++; 
 		m = n+1; 
 		return a + b + m + n;
@@ -110,7 +115,7 @@ fn main(): void {
 	// m = 1, n = 0, c = 10 (3 + 4 + 2 + 1)
 	
 	var x i32 = 5;
-	fn inner = lambda [](y i32): i32 {
+	fn inner = lambda [x](y i32): i32 {
         return x + y;
     };
 	var v = inner(6); // v = 11 (5 + 6)
@@ -298,11 +303,11 @@ if (a=1 and b=2) {
 	return false;
 }
 
-var c = exp if (a>2) {
-	true;
+var c = if_exp (a>2) {
+	true
 } else {
-	false;
-}
+	false
+};
 
 //---------------------------------
 var i i32 = 0;
@@ -329,7 +334,7 @@ for (var i i32 in (0, 5)) {
 	i = 0;
 }
 // 4, 3, 2, 1, 0
-for (var i i32 in reversed (0, 5)) {
+for (var i i32 in rev (0, 5)) {
 	i = 0;
 }
 
@@ -350,7 +355,7 @@ for (var x in array) {
 	fmt.println(x);
 }
 
-for (var x in reversed array) {
+for (var x in rev array) {
 	fmt.println(x);
 }
 
