@@ -77,8 +77,11 @@ int a[_] = [0, 1, 2, 3, 4, 5];
 type angle f32;
 
 // func ptr, fn()
-var pf_sum fn(i32): i32, arg i32): i32 = &sum;
+var pf_sum fn(i32): i32, arg i32): i32 = sum&;
 type pft_sum fn(i32, i32): i32;
+//var fp pft_sum = sum&;
+var fp pft_sum;
+fp = sum&;
 
 //fn do_twice(opr fun_ptr_t, arg i32): i32 {
 fn do_twice(opr fn(i32): i32, arg i32): i32 {
@@ -86,10 +89,6 @@ fn do_twice(opr fn(i32): i32, arg i32): i32 {
 }
 var answer = do_twice(sum, 5);
 
-
-//var fp pft_sum = sum;
-var fp pft_sum;
-fp = sum;
 
 //i32 (*fp)(i32, i32)
 var fp fn(i32, i32): i32;
