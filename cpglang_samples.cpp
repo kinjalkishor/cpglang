@@ -362,8 +362,12 @@ for (var x in rev array) {
 std::map!<i32, i32> amap({ { 1, 1 }, { 2, 2 }, { 3, 3 } });
 for (var i in amap) {
 	//fmt.println("_{{i.first}, {i.second}_}");
-	fmt.println("{_$(i.first), _$(i.second)}");	
+	//fmt.println("{_$(i.first), _$(i.second)}");	
+	//fmt.println("%{}, %{}", i.first, i.second); //%{} to print {} also.
+	fmt.println("%{1}, %{2}", i.first, i.second); // optional positional arguments
 }
 
 //fmt.println("a = {a}");
-fmt.println("a = _$[8:6:f](a)");
+//fmt.println("a = _$[8:6:f](a)");
+fmt.println("a = {[8:6:f]1}", a);
+
