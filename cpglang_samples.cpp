@@ -17,6 +17,7 @@ fn main(): i32 {
 {- hello world -}
 //---------------------------
 
+
 var a i32;
 var a const i32;
 var a i32^;
@@ -75,26 +76,31 @@ int a[_] = [0, 1, 2, 3, 4, 5];
 //------------
 type angle f32;
 
-// func ptr, fnp
-type pft_sum fnp(i32, i32): i32;
+// func ptr, fn()
+var pf_sum fn(i32): i32, arg i32): i32 = &sum;
+type pft_sum fn(i32, i32): i32;
+
+//fn do_twice(opr fun_ptr_t, arg i32): i32 {
+fn do_twice(opr fn(i32): i32, arg i32): i32 {
+	return opr(arg) + opr(arg)
+}
+var answer = do_twice(sum, 5);
+
+
 //var fp pft_sum = sum;
 var fp pft_sum;
 fp = sum;
 
 //i32 (*fp)(i32, i32)
-var fp fnp(i32, i32): i32;
+var fp fn(i32, i32): i32;
 //int (*fp)(int (*)(int, int), int)
-var fp fnp((fnp(i32, i32): i32), i32): i32
+var fp fn((fn(i32, i32): i32), i32): i32
 //int (*(*fp)(int (*)(int, int), int))(int, int)
 //f func(func(int,int) int, int) func(int, int) int
-var fp2 fnp(fnp(i32, i32): i32, i32): fnp(i32, i32): i32
-type ff fnp(i32, i32): i32;
-var fp2 fnp(ff, i32): ff;
+var fp2 fn(fn(i32, i32): i32, i32): fn(i32, i32): i32
+type fp_t fn(i32, i32): i32;
+var fp2 fn(fp_t, i32): fp_t;
 
-fn do_something(doer fnp(i32, i32): i32) {
-	doer(5,5);
-}
-do_something(&add);
 
 // closure
 // lambda
